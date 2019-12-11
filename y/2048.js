@@ -48,11 +48,29 @@ function randomNumber() {
 }
 
 function displayGrid() {
-  console.log("*---------------*");
-  for (let i = 0; i < gridValue; i++) {
-    console.log('|',grid[i].toString().replace(/,/g, " | "),'|')
-    console.log("*---------------*");
+  var tableBody = document.getElementById('tableBody');
+  tableBody.innerHTML = ""
+  grid.forEach(function(rowData) {
+    var row = document.createElement('tr');
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+    tableBody.appendChild(row);
+  });
+}
+
+function myKeyPress(e){
+  var keynum;
+
+  if(window.event) { // IE                    
+    keynum = e.keyCode;
+  } else if(e.which){ // Netscape/Firefox/Opera                   
+    keynum = e.which;
   }
+
+  alert(String.fromCharCode(keynum));
 }
 
 function start() {
@@ -125,7 +143,17 @@ function rotateGrid(grid){
   return newGrid
 }
 
-function move(a){
+function move(e){
+  let a = 0;
+  document.getElementById('error').innerHTML = ""
+  if(window.event) {          
+    a = e.keyCode;
+    a = String.fromCharCode(a);
+  } else if(e.which){            
+    a = e.which;
+    a = String.fromCharCode(a);
+  } 
+  a = parseInt(a);
   let flipped = false;
   let rotated = false;
   let played = false;
@@ -145,6 +173,8 @@ function move(a){
     grid = rotateGrid(grid);
     rotated = true;
     played = true;
+  }else if ( a <= 0 || a >= 5){
+    document.getElementById('error').innerHTML = "invalid number"
   }
   if(played){
     let past = {...grid};
@@ -164,6 +194,7 @@ function move(a){
       randomNumber();
     }
   }
+  document.getElementById('userInput').value='';
   displayGrid();
 }
 
