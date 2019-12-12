@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            2048
+        </title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body onkeydown="move(event)">
+        <div class = 'gameDiv'>
+            <div>
+                <div class="scoreBoard">
+                    <div class="score">score : <span id="score"></span></div>
+                    <div>
+                        <button class="restart" onclick="start()">
+                            RESTART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table id="gameConsole">
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="gameOver" ></div>
+        </div>
+    </body>
+    <script src="./index.js"></script>
+</html>

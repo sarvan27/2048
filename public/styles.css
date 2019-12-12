@@ -1,0 +1,69 @@
+body{
+    background-color: #1fc8db;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    height: calc(100vh - 20px);
+}
+
+#gameConsole{
+    text-align: center;
+    background-color: grey;
+    margin-bottom: 10px;
+}
+td{
+    font-size: 36px;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+.gameDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.score {
+    font-size: 36px;
+}
+.scoreBoard{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 340px;
+    margin-bottom: 10px;
+}
+.restart{
+    width: 130px;
+    height: 50px;
+    background-color: rgb(168, 168, 168);
+    border-radius: 5px;
+    font-size: 18px;
+}
+#gameOver {
+    color: red;
+    font-style: italic;
+    font-size: 36px;
+}
+
+@media screen and (min-width: 400px)  and (max-width: 1000px){
+    td{
+        font-size: 48px;
+        width: 15vw;
+        height: 15vw;
+    }
+    .restart {
+        font-size: 24px;
+    }
+    .score {
+        font-size: 48px;
+    }
+    .scoreBoard {
+        width: 600px;
+    }
+    #gameOver {
+        font-size: 48px;
+    }
+    
+}

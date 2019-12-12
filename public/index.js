@@ -77,11 +77,12 @@ function displayGrid() {
   });
   document.getElementById('score').innerHTML = score;
   if(checkGameOver()){
-    document.getElementById('gameOver').innerHTML = "GAME OVER";
+    document.getElementById('gameOver').innerHTML = "GAME OVER ...!";
   }
 }
 
 function start() {
+  document.getElementById('gameOver').innerHTML = "";
   grid = initGrid();
   score = 0;
   randomNumber();
@@ -153,19 +154,19 @@ function move(e){
   let flipped = false;
   let rotated = false;
   let played = false;
-  if(a === "ArrowLeft") {
+  if(a === "ArrowLeft" || a === 'a') {
     flipGrid(grid);
     flipped = true;
     played = true;
-  }else if (a === "ArrowRight"){
+  }else if (a === "ArrowRight" || a === 'd'){
     played = true;
-  }else if (a === "ArrowUp"){
+  }else if (a === "ArrowUp" || a === 'w'){
     grid = rotateGrid(grid);
     grid = flipGrid(grid);
     rotated = true;
     flipped = true;
     played = true;
-  }else if (a === "ArrowDown"){
+  }else if (a === "ArrowDown" || a === 's'){
     grid = rotateGrid(grid);
     rotated = true;
     played = true;
