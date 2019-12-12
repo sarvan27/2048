@@ -4,50 +4,15 @@
         <title>
             2048
         </title>
-        <style>
-            body{
-                text-align: center;
-            }
-            .head{
-                font-size: 25px;
-                margin: 20px;
-            }
-            .flexBox{
-                padding: 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            #gameConsole{
-                font-size: 30px;
-                border: 1px solid red;
-                text-align: center;
-                background-color: grey;
-            }
-            td{
-                background-color: white;
-                width: 50px;
-                height: 50px;
-                border: 1px solid green;
-                border-radius: 5px;
-            }
-            #error{
-                color: red;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
+    <body onkeydown="move(event)">
         <div class="head">
             Saravana - 2048
         </div>
-        <div>user number between 1 to 4</div>
-        <P>
-            <b>1</b> to move left<br/>
-            <b>2</b> to move right<br/>
-            <b>3</b> to move up<br/>
-            <b>4</b> to move down
-        </p>
-        <span>User Input : </span><input type="text" id="userInput" onkeypress="move(event)" />
+        <div>
+            score : <span id="score"></span>
+        </div>
         <div class="flexBox">
             <table id="gameConsole">
                 <tbody id="tableBody">
@@ -55,7 +20,12 @@
                 </tbody>
             </table>
         </div>
-        <div id="error"></div>
+        <div id="gameOver">
+
+        </div>
+        <button onclick="start()">
+            restart
+        </button>
     </body>
-    <script src="./2048.js"></script>
+    <script src="./index.js"></script>
 </html>
